@@ -1,0 +1,7 @@
+vocales_1 = ("a", "e", "i")
+vocales_2 = ("o", "u")
+print(vocales_1 + vocales_2)
+print(vocales_1 * 3)
+numeros_1 = (1, 2, 2, 4, 5)
+numeros_2 = (1, 2, 3, 4, 5)
+print(numeros_1 >= numeros_2)
