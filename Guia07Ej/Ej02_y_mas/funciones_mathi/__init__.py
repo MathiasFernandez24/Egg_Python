@@ -2,3 +2,4 @@ from .funciones import area_circulo, relacion,separar, anio_bisiesto, validar_an
 from .fun_intermedio import intermedio
 from .rectangulo import area_rectangulo
 from .recorte import recortar
+from .fun_es_entero import es_entero

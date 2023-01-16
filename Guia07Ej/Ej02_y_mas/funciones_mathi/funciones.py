@@ -3,15 +3,19 @@ import math
 
 def area_circulo(radio:int):
     """Calcura el area de un circulo, recibe 1 parametro: -radio y retorna el area"""
+    print(radio**2 * math.pi)
     return radio**2 * math.pi
 
 def relacion(num1:int, num2:int):
     """Recibe 2 numeros, si el primero es mayor retorna 1, si el primero es menor retorna -1, si son iguales retorna 0"""
     if num1 > num2:
+        print("retorna 1")
         return 1
     elif num1 < num2:
+        print("retorna -1")
         return -1
     else:
+        print("retorna 0")
         return 0
 
 def separar(*args:int):
@@ -26,6 +30,7 @@ def separar(*args:int):
             impares.append(v)
     pares.sort()
     impares.sort()
+    print(pares, impares)
     return pares, impares
 
 def validar_numero(num1:str):
@@ -86,13 +91,14 @@ def validar_anio_bisiestro(num:str):
     else:
         print("--> Num no validado")
 
-def inputcito():
+def inputcito()->int:
+    """ no recibe parametros, retorna un numero que el usuario ingrese por consola (tipo input)"""
     try:
         numero:int= int(input("Input: "))
-        return numero
+        return int(numero)
     except ValueError:
         print("No se admiten palabras")
+        return 0
     except Exception as e:
         print("Error nuevo, agregar a funcion inputcito",type(e))
-    else:
-        return None
+        return 0
