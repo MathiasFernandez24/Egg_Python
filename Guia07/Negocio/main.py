@@ -1,3 +1,7 @@
+from funciones import crear_articulo    
+import pprint
+
+carrito={}
 
 while True:
     print("""
@@ -13,16 +17,18 @@ x. Salir
 
             print("""
         ARTÍCULOS
-    1. Ver artículos
+        1. Ver artículos
 	2. Agregar un artículo
 	3. Modificar un artículo
 	4. Eliminar un artículo
 	x. Salir""")
             opcion= input("seleccione una opcion: ")
             if opcion == "1":
-                print("sub-menu1")
+                print("     ----INVENTARIO----")
+                pprint.pprint(carrito)
             elif opcion == "2":
-                print("sub-menu2")
+                [codigo, valores] = crear_articulo(carrito)
+                carrito.update({codigo:valores})
             elif opcion == "3":
                 print("sub-menu3")
             elif opcion == "4":
