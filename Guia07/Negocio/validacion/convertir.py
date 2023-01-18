@@ -1,5 +1,3 @@
-
-
 def a_int(dato):
     try:
         if not type(dato)== bool:
@@ -24,7 +22,7 @@ def a_str(dato):
     else:
         return False
 
-print(int(90.99))   
-print(type(int(90.99)))   
+# print(int(90.99))   
+# print(type(int(90.99)))   
 # print(type(float(False)))
 # print(float(False))
