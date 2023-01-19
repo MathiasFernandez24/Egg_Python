@@ -1,4 +1,5 @@
 def a_int(dato):
+    """recibe cualquier tipo de dato, si es posible convertirlo en int, lo retorna, sino retorna False"""
     try:
         if not type(dato)== bool:
             return int(float(dato))
@@ -8,6 +9,7 @@ def a_int(dato):
         return False
 
 def a_float(dato):
+    """recibe cualquier tipo de dato, si es posible convertirlo en float, lo retorna, sino retorna False"""
     try:
         if not type(dato)== bool:
             return float(dato)
