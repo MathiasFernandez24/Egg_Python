@@ -1,15 +1,19 @@
 import pprint
 from .funcionalidades import crear_articulo, mostrar_articulos
+import usuario
 
-def menu(carrito):
+titulo_02="Menu Articulos"
+coleccion_02 = {
+    "1": {"descripcion":"Ver Articulos", "funcion":"funcion1"},
+    "2": {"descripcion":"Agregar un articulo", "funcion":"funcion2"},
+    "3": {"descripcion":"Modificar un artículo", "funcion":"funcion2"},
+    "4": {"descripcion":"Eliminar un artículo", "funcion":"funcion2"},
+    "x": {"descripcion":"Salir", "funcion":"funcion2"},
+}
+
+def menu_articulos(carrito):
     while True:
-            print("""
-        ARTÍCULOS
-        1. Ver artículos
-	2. Agregar un artículo
-	3. Modificar un artículo
-	4. Eliminar un artículo
-	x. Salir""")
+            usuario.mostrar(titulo_02,coleccion_02)
             opcion= input("seleccione una opcion: ")
             if opcion == "1":
                 mostrar_articulos(carrito)

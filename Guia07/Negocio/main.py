@@ -1,10 +1,12 @@
 # from funciones import crear_articulo   
-from usuario.menu import leer_opcion
+from usuario.menu import leer_opcion, menu_usuario
 import articulos.menu
 
 carrito={}
 carrito2={}
-leer_opcion()
+
+menu_usuario(carrito)
+# leer_opcion()
 # while True:
 #     print("""
 # ------------
