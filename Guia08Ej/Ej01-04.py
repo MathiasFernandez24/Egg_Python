@@ -1,14 +1,21 @@
-# Crea una clase Producto con las siguientes características:
-# Atributos de instancia:
-# 		código: int
-# 		nombre: str
-# 		precio: float
-# 		stock: int (no es obligatorio. Valor predeterminado: 0)
-# Crea al menos 3 instancias de clases y muestra sus datos.
 from typing import Optional
 
 
-class Producto:
+class Administrador:
+    password: str = "admin"
+    def validar_accion(self)->bool:
+        print(Administrador.password)
+        print(self.password)
+        print("##Validar accion##")
+        clave = input("ingresa password")
+        if clave == self.password:
+            print("*Clave exitosa VVVVV")
+            return True
+        else:
+            print("*Clave erronea XXXXXX")
+            return False
+
+class Producto(Administrador):
     impuesto:float= 21.0
     lista_productos: list["Producto"]=[]
 
@@ -23,32 +30,34 @@ class Producto:
         return precio_final
 
     def funcion_comprar(self, cantidad:int):
-        if cantidad>0:
-            if self in Producto.lista_productos:
-                print(f"Tenemos {self.stock} {self.nombre} en Stock, se agregan {cantidad} , en total hay {self.stock+cantidad}")
-                self.stock+=cantidad
+        if self.validar_accion():
+            if cantidad>0:
+                if self in Producto.lista_productos:
+                    print(f"Tenemos {self.stock} {self.nombre} en Stock, se agregan {cantidad} , en total hay {self.stock+cantidad}")
+                    self.stock+=cantidad
+                else:
+                    print(f"--> {self.nombre} No existe, lo agregaremos ahora")
+                    self.stock+=cantidad
+                    Producto.lista_productos.append(self)
             else:
-                print("No existe")
-                self.stock+=cantidad
-                Producto.lista_productos.append(self)
-        else:
-            print("######## Hermano, no estoy pa esa.... plis, numeros positivos enteros")
+                print("######## Hermano, no estoy pa esa.... plis, numeros positivos enteros")
 
     def funcion_vender(self, cantidad:int):
-        if cantidad>0:
-            if self in Producto.lista_productos:
-                if cantidad < self.stock:
-                    print(f"Venta realizada, Teniamos {self.stock}, vendimos {cantidad}, y ahora tenemos {self.stock-cantidad}")
-                    self.stock-= cantidad 
-                elif cantidad == self.stock:
-                    print(f"Vendimos todo el stock, que era {self.stock}")
-                    Producto.lista_productos.remove(self)
-                elif cantidad>self.stock:
-                    print(f"No puedes vender mas de {self.stock}") 
+        if self.validar_accion():
+            if cantidad>0:
+                if self in Producto.lista_productos:
+                    if cantidad < self.stock:
+                        print(f"Venta realizada, Teniamos {self.stock}, vendimos {cantidad}, y ahora tenemos {self.stock-cantidad}")
+                        self.stock-= cantidad 
+                    elif cantidad == self.stock:
+                        print(f"Vendimos todo el stock, que era {self.stock}")
+                        Producto.lista_productos.remove(self)
+                    elif cantidad>self.stock:
+                        print(f"No puedes vender mas de {self.stock}") 
+                else:
+                    print(f"{self.nombre} No se encuentra en nuestra lista ") 
             else:
-                print(f"{self.nombre} No se encuentra en nuestra lista ") 
-        else:
-            print("######## Hermano, no estoy pa esa.... plis, numeros positivos enteros")
+                print("######## Hermano, no estoy pa esa.... plis, numeros positivos enteros")
 
     def listar_productos(self):
         print("---> mostrar lista desde", self.nombre)
@@ -91,29 +100,10 @@ L_caperuza = Libro(300,"Capucita roja",900,"####999####","Maira lo hizo")
 p_tornillo.funcion_comprar(1)
 p_destornillador.funcion_comprar(1)
 p_alicate.funcion_comprar(1)
+
 C_capuchino.funcion_comprar(1)
 L_caperuza.funcion_comprar(1)
 
-# p_alicate.funcion_comprar(1)
+L_caperuza.listar_productos()
 
 L_caperuza.listar_productos()
-p_tornillo.listar_productos()
-# p_tornillo.funcion_comprar(5)
-# p_tornillo.listar_productos()
-# p_tornillo.funcion_comprar(1)
-# p_tornillo.listar_productos()
-# p_tornillo.funcion_vender(7)
-# p_tornillo.listar_productos()
-
-# p_alicate.funcion_vender(1)
-# p_destornillador.listar_productos()
-# p_alicate.listar_productos()
-
-
-# print(p_tornillo.__dict__)
-# print(p_destornillador.__dict__)
-# print(p_alicate.__dict__)
-
-# print(p_alicate.lista_productos)
-
-# p_destornillador.funcion_comprar(5)
