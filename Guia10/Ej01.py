@@ -21,5 +21,21 @@ def sobreescribir(nombre_archivo, texto):
         print("El archivo no existe")
 
 
-crear_Archivo("archivo_01.txt")
-sobreescribir("archivo_01.txt","hola, soy una sobreescritura")
+def escribir(nombre_archivo, texto):
+    with open(nombre_archivo,"a") as f:
+        f.write(str(texto)+"\n")
+
+def leer(nombre_archivo):
+    with open(nombre_archivo,"r") as f:
+        print(f.readlines())
+
+def borrar(nombre_archivo):
+    # with open(nombre_archivo,"d") as f:
+        os.remove("archivo_01.txt")
+
+
+# crear_Archivo("archivo_01.txt")
+# sobreescribir("archivo_01.txt","hola, soy una sobreescritura")
+# escribir("archivo_01.txt",999)
+# leer("archivo_01.txt")
+# borrar("archivo_01.txt")
